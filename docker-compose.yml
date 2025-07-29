@@ -13,6 +13,7 @@ services:
     volumes:
       - evolution_instances:/evolution/instances
       - ./custom.env:/evolution/.env
+      - ./postgresql-schema.prisma:/evolution/prisma/postgresql-schema.prisma
     depends_on:
       - redis
     ports:
