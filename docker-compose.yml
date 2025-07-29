@@ -12,6 +12,7 @@ services:
       - API_PORT=8080
     volumes:
       - evolution_instances:/evolution/instances
+      - ./custom.env:/evolution/.env
     depends_on:
       - redis
     ports:
