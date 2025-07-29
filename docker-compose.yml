@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  evolution-api:
+    container_name: evolution_api
+    image: atendai/evolution-api:latest
+    restart: always
+    environment:
+      - API_HOST=localhost
+      - API_PORT=8080
+      - POSTGRES_HOST=localhost
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=evolution  # <--- mejor usar otra base que `n8n`
+      - POSTGRES_USER=n8n
+      - POSTGRES_PASSWORD=vi55DApowi
+    volumes:
+      - evolution_instances:/evolution/instances
+    depends_on:
+      - redis
+    ports:
+      - "8080:8080"
+    network_mode: host
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    command: redis-server --port 6379 --appendonly yes
+    volumes:
+      - evolution_redis:/data
+    ports:
+      - "6379:6379"
+    network_mode: host
+
+volumes:
+  evolution_instances:
+  evolution_redis:
