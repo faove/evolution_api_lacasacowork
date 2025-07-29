@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       - DATABASE_PROVIDER=postgresql
-      - DATABASE_URL=postgresql://n8n:vi55DApowi@localhost:5432/evolution
+      - DATABASE_URL=postgresql://postgres:vi55DApowi@localhost:5432/evolution
       - API_HOST=0.0.0.0
       - API_PORT=8080
     volumes:
