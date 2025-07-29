@@ -7,13 +7,9 @@ services:
     restart: always
     environment:
       - DATABASE_PROVIDER=postgresql
+      - DATABASE_URL=postgresql://postgres:vi55DApowi@postgres:5432/evolution
       - API_HOST=localhost
       - API_PORT=8080
-      - POSTGRES_HOST=postgres
-      - POSTGRES_PORT=5432
-      - POSTGRES_DB=evolution
-      - POSTGRES_USER=n8n
-      - POSTGRES_PASSWORD=vi55DApowi
     volumes:
       - evolution_instances:/evolution/instances
     depends_on:
